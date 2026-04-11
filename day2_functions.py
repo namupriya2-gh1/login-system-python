@@ -1,3 +1,4 @@
+"""
 #Login function
 
 def login(User_name, Password):
@@ -25,26 +26,23 @@ def check_user_role(role):
 
 check_user_role("admin")
 check_user_role("guest")
+"""
 
 #Reusable login function with multiple users
 
-def user_login(username, password):
+def login(username, password):
     if username == "admin" and password == "1234":
-        return "success"
+        return "PASS"
     else:
-        return "fail"
+        return "FAIL"
 
 
 users = [
     ("admin", "1234"),
-    ("guest", "0000"),
-    ("testuser", "1234")
+    ("user", "wrong"),
+    ("guest", "1234")
 ]
 
 for username, password in users:
-    result = user_login(username, password)
-
-    if result == "success":
-        print("Testing user:", username, "Passed")
-    else:
-        print("Testing user:", username, "Failed")
+    result = login(username, password)
+    print(f"User {username} login: {result}")
